@@ -28,7 +28,8 @@ export default function HomePage() {
         >
           Contacts
         </Link>
-        {studioUrl && (
+        <div data-holmes="recommendations" className="contents">
+          {studioUrl && (
           <a
             href={studioUrl}
             target="_blank"
@@ -37,7 +38,8 @@ export default function HomePage() {
           >
             View in Aurora Studio →
           </a>
-        )}
+          )}
+        </div>
       </nav>
     </div>
   );
