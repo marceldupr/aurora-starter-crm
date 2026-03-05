@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "node scripts/predev.mjs && next dev -p 3002",
     "build": "next build",
-    "start": "next start -p 3002",
+    "start": "node scripts/predev.mjs && next start -p 3002",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "schema:provision": "node scripts/provision-schema.mjs",
