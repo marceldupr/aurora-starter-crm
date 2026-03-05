@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/predev.mjs && next dev -p 3002",
-    "build": "next build",
+    "build": "node scripts/predev.mjs && next build",
     "start": "node scripts/predev.mjs && next start -p 3002",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
