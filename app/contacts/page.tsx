@@ -58,9 +58,10 @@ export default async function ContactsPage() {
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {contacts.map((c) => (
-            <div
+            <Link
               key={String(c.id)}
-              className="rounded-container bg-aurora-surface border border-aurora-border p-5 hover:border-aurora-accent/40 transition-colors"
+              href={`/contacts/${c.id}`}
+              className="rounded-container bg-aurora-surface border border-aurora-border p-5 hover:border-aurora-accent/40 transition-colors block"
             >
               <div className="flex items-start gap-3">
                 <div className="w-12 h-12 rounded-full bg-aurora-accent/20 flex items-center justify-center shrink-0">
@@ -92,7 +93,7 @@ export default async function ContactsPage() {
                   ) : null}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

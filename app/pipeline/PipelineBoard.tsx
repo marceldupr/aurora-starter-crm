@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -67,9 +68,10 @@ export function PipelineBoard({
                 const isMoving = moving === String(deal.id);
 
                 return (
-                  <div
+                  <Link
                     key={String(deal.id)}
-                    className="rounded-component bg-aurora-bg/60 border border-aurora-border p-4 group"
+                    href={`/deals/${deal.id}`}
+                    className="block rounded-component bg-aurora-bg/60 border border-aurora-border p-4 group hover:border-aurora-accent/40 transition-colors"
                   >
                     <p className="font-medium mb-1">{String(deal.name ?? "")}</p>
                     <p className="text-sm text-aurora-muted mb-2">{contactName}</p>
@@ -78,25 +80,27 @@ export function PipelineBoard({
                         {formatCurrency(value)}
                       </p>
                     ) : null}
-                    <select
-                      className="w-full text-xs px-2 py-1.5 rounded-component bg-aurora-surface border border-aurora-border text-aurora-muted"
-                      defaultValue=""
-                      onChange={(e) => {
-                        const v = e.target.value;
-                        if (v) moveDeal(String(deal.id), v);
-                      }}
-                      disabled={isMoving}
-                    >
-                      <option value="">Move to...</option>
-                      {stages
-                        .filter((s) => String(s.id) !== stageId)
-                        .map((s) => (
-                          <option key={String(s.id)} value={String(s.id)}>
-                            {String(s.name ?? "")}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <select
+                        className="w-full text-xs px-2 py-1.5 rounded-component bg-aurora-surface border border-aurora-border text-aurora-muted"
+                        defaultValue=""
+                        onChange={(e) => {
+                          const v = e.target.value;
+                          if (v) moveDeal(String(deal.id), v);
+                        }}
+                        disabled={isMoving}
+                      >
+                        <option value="">Move to...</option>
+                        {stages
+                          .filter((s) => String(s.id) !== stageId)
+                          .map((s) => (
+                            <option key={String(s.id)} value={String(s.id)}>
+                              {String(s.name ?? "")}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  </Link>
                 );
               })}
               {stageDeals.length === 0 ? (

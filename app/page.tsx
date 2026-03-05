@@ -71,6 +71,43 @@ export default async function HomePage() {
   const { contactsCount, dealsCount, totalRevenue, stages, dealsByStage, activities } = data!;
 
   return (
+    <div className="max-w-7xl mx-auto">
+      {/* Hero */}
+      <section className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden min-h-[320px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-aurora-surface/40 to-transparent" />
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "url(https://picsum.photos/seed/aurora-crm-hero/1920/1080)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-white drop-shadow-2xl">
+            Sales pipeline
+          </h1>
+          <p className="text-lg sm:text-xl text-white/90 mb-10 drop-shadow max-w-2xl">
+            Manage deals, contacts, and close more revenue.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/pipeline"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-component bg-aurora-surface border border-aurora-border hover:bg-aurora-surface-hover hover:border-aurora-accent/30 transition-all font-semibold"
+            >
+              View pipeline
+            </Link>
+            <Link
+              href="/deals"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-component border-2 border-aurora-accent/50 text-aurora-accent font-semibold hover:bg-aurora-accent/10 transition-all"
+            >
+              All deals
+            </Link>
+          </div>
+        </div>
+      </section>
+
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
 
@@ -151,7 +188,12 @@ export default async function HomePage() {
           Recent activity
         </h2>
         {activities.length === 0 ? (
-          <p className="text-aurora-muted text-sm">No activities yet.</p>
+          <div>
+            <p className="text-aurora-muted text-sm mb-2">No activities yet.</p>
+            <Link href="/activities" className="text-aurora-accent hover:underline text-sm font-medium">
+              View activities →
+            </Link>
+          </div>
         ) : (
           <ul className="space-y-3">
             {activities.map((a) => (
@@ -170,6 +212,7 @@ export default async function HomePage() {
           </ul>
         )}
       </div>
+    </div>
     </div>
   );
 }

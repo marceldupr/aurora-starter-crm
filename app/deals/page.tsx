@@ -82,7 +82,9 @@ export default async function DealsPage() {
               {deals.map((d) => (
                 <tr key={String(d.id)} className="border-b border-aurora-border last:border-0 hover:bg-aurora-surface-hover">
                   <td className="py-4 px-4">
-                    <span className="font-medium">{String(d.name ?? "")}</span>
+                    <Link href={`/deals/${d.id}`} className="font-medium hover:text-aurora-accent">
+                      {String(d.name ?? "")}
+                    </Link>
                   </td>
                   <td className="py-4 px-4 text-aurora-accent font-semibold">
                     {d.value != null ? formatCurrency(Number(d.value)) : "—"}

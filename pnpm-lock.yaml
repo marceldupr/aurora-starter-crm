@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@aurora-studio/sdk':
-        specifier: 0.2.6
-        version: 0.2.6
+        specifier: 0.2.7
+        version: 0.2.7
       lucide-react:
         specifier: ^0.454.0
         version: 0.454.0(react@19.2.4)
@@ -61,8 +61,8 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@aurora-studio/sdk@0.2.6':
-    resolution: {integrity: sha512-uy+e7M+u149825KOYm2jVpZHKdCWsFsTGEVyDbvlc+amuFgjw1VfSU++PdPzRIZ5ZQDBCOOUVS17mS+wmYWm5w==}
+  '@aurora-studio/sdk@0.2.7':
+    resolution: {integrity: sha512-w4FE6TVMT4r9f7F/OZzJX2S2WyCR427mGFWL9qo9tkeMEVTfnkPDKISwYUNGlIL7znIyRcq+8WQ5o261zYG5iw==}
     engines: {node: '>=18'}
 
   '@emnapi/core@1.8.1':
@@ -1804,7 +1804,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@aurora-studio/sdk@0.2.6': {}
+  '@aurora-studio/sdk@0.2.7': {}
 
   '@emnapi/core@1.8.1':
     dependencies:
