@@ -6,7 +6,7 @@
  * instrumentation) and can be called from scripts.
  */
 
-export const AURORA_BASE = "marketplace-base" as const;
+export const AURORA_BASE = "base" as const;
 
 export type SchemaShape = {
   tables: unknown[];

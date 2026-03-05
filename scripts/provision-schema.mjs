@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Provision the CRM schema for your Aurora tenant (first run).
- * Reads init/schema.json and POSTs to /v1/provision-schema. Base: marketplace-base.
+ * Reads init/schema.json and POSTs to /v1/provision-schema. Base: base.
  *
  * Requires: AURORA_API_URL, AURORA_API_KEY. Run: pnpm schema:provision
  */
@@ -26,14 +26,14 @@ const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
 const base = apiUrl.replace(/\/$/, "");
 const url = `${base}/v1/provision-schema`;
 
-console.log(`POST ${url} (base: marketplace-base)`);
+console.log(`POST ${url} (base: base)`);
 const res = await fetch(url, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
     "X-Api-Key": apiKey,
   },
-  body: JSON.stringify({ schema, base: "marketplace-base" }),
+  body: JSON.stringify({ schema, base: "base" }),
 });
 
 if (!res.ok) {
